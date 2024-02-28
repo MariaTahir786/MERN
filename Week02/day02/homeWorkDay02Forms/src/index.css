@@ -1,0 +1,46 @@
+/* Style for the form container */
+div {
+  margin: 20px auto; /* Add 'auto' to center the form container */
+  background-color: #dfbbbb;
+  padding: 20px;
+  max-width: 75%; /* Set maximum width for the form container */
+  border: 1px solid #8d7c7c;
+}
+
+/* Style for form labels and input fields container */
+.label-input-container {
+  display: flex;
+  justify-content: space-between; /* Adjust spacing between label and input */
+  margin-bottom: 12px;
+}
+
+/* Style for form labels */
+label {
+  width: 25%; /* Set the width for labels */
+  margin-right: 2%; /* Adjust spacing between label and input */
+}
+
+/* Style for input fields */
+input {
+  width: 70%; /* Set the width for input fields */
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #756e6e;
+  border-radius: 4px;
+  margin-top: 4px; /* Adjust the spacing between label and input */
+}
+
+/* Style for the submit button */
+button {
+  background-color: #302222;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for the heading displaying form values */
+h2 {
+  margin-top: 20px;
+}
