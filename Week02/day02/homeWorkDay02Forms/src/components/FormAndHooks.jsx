@@ -41,22 +41,41 @@ const FormAndHooks = () => {
         <div>
             <form onSubmit={submitForm}>
                 <div>
+                    {
+                      fName.length<2 && fName.length!==0?
+                      <p style={{"color":"red"}}>Name Must be at least two characters</p> 
+                    :null
+                }
                     <label htmlFor="firstName">First Name  </label>
                     <input type="text" name="firstName" id="" onChange={handleFName} />
                 </div>
                 <div>
+                    {
+                        lName.length<2 &&lName.length!==0?
+                        <p style={{"color":"red"}}>Name Must be at least two characters</p>:null
+                    }
                     <label htmlFor="lastName">Last Name  </label>
                     <input type="text" name="lastName" id="" onChange={handleLName} />
                 </div>
                 <div>
+                {
+                        email.length<5 &&email.length!==0?
+                        <p style={{"color":"red"}}>Email Must be at least 5 characters</p>:null
+                    }
                     <label htmlFor="email">Email  </label>
                     <input type="email" name="email" id="" onChange={handleEmail} />
                 </div>
                 <div>
+                {
+                 password.length<8 && password.length!==0?<p style={{"color":"red"}}>Password must be at least 8 characters long</p> :null  
+                }
                     <label htmlFor="password">Password  </label>
                     <input type="password" name="password" id="" onChange={handlePassword} />
                 </div>
                 <div>
+                    {
+                      confPassword!==password && confPassword.length!==0? <p style={{"color":"red"}}>Passwords must match</p> :null
+                    }
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input type="password" name="confirmPassword" id="" onChange={handleConfPassword} />
                 </div>
