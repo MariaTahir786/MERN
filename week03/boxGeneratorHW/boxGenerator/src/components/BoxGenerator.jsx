@@ -9,7 +9,7 @@ const BoxGenerator = () => {
     e.preventDefault();
 
     if (color.trim() === '' || size <= 0) {
-      return; // Prevent creating invalid boxes
+      return; 
     }
 
     const newBox = {
@@ -18,8 +18,8 @@ const BoxGenerator = () => {
     };
 
     setBoxes((previousBoxes) => [...previousBoxes, newBox]);
-    setColor(''); // Use setColor function to reset state
-    setSize('');  // Use setSize function to reset state
+    setColor(''); 
+    setSize('');
   };
 
   const colorChangeHandler = (e) => {
