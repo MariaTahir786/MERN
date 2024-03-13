@@ -12,7 +12,7 @@ const ToDoForm = ({ addToDo }) => {
 
     if (toDo.trim() === '') return;
 
-    
+
     const newToDo = {
       text: toDo,
       isComplete: false,
@@ -26,27 +26,20 @@ const ToDoForm = ({ addToDo }) => {
 
   return (
     <div className="container">
-      <div>i-Task Manage Your To Do's at one place</div>
+      <h1>i-Task Manage Your To Do's at one place</h1>
       <form onSubmit={submitHandler}>
         <div>
-          <label htmlFor="toDo">Add A ToDo</label>
-          <input
-            type="text"
-            value={toDo}
-            onChange={changeHandler}
-            style={{
-              marginTop: '25px',
-              marginLeft: '10px',
-            }}
+          <label htmlFor="toDo" className="col-sm-2 col-form-label">Add A ToDo</label>
+          <input type="text"  value={toDo}  onChange={changeHandler}
+           className="form-control" 
           />
         </div>
-        <input
-          type="submit"
-          value="Save"
+        <input  type="submit" value="Save"
+
           style={{
             marginTop: '25px',
             marginLeft: '5px',
-          }}
+          }} className="btn btn-success" 
         />
       </form>
     </div>

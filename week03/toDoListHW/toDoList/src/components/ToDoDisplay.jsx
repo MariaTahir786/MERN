@@ -3,10 +3,10 @@ import React from 'react';
 const ToDoDisplay = ({ toDos, removeToDo, toggleToDo }) => {
   return (
     <div>
-      <ul>
+      
         {toDos.map((todo) => (
-          <li key={todo.id}>
-            <input
+          <div key={todo.id}>
+            <input className="form-check-input"
               type="checkbox"
               checked={todo.isComplete}
               onChange={() => toggleToDo(todo.id)}
@@ -15,12 +15,12 @@ const ToDoDisplay = ({ toDos, removeToDo, toggleToDo }) => {
               {todo.text}
             </span>
             <button onClick={() => removeToDo(todo.id)}style={{
-            marginTop: '25px',
+            marginTop: '15px',
             marginLeft: '5px',
-          }}>Delete</button>
-          </li>
+          }}  className="btn btn-danger">Delete</button>
+        </div>
         ))}
-      </ul>
+     
     </div>
   );
 };
