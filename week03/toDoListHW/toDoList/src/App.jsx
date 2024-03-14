@@ -7,13 +7,13 @@ function App() {
   const [toDos, setToDos] = useState([]);
 
   useEffect(() => {
-   
+
     const storedToDos = JSON.parse(localStorage.getItem('toDos')) || [];
     setToDos(storedToDos);
   }, []);
 
   useEffect(() => {
-   
+
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }, [toDos]);
 
