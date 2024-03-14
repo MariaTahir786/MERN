@@ -39,6 +39,7 @@ const ToDoForm = ({ addToDo }) => {
           style={{
             marginTop: '25px',
             marginLeft: '5px',
+            marginBottom:"25px"
           }} className="btn btn-success" 
         />
       </form>
