@@ -8,4 +8,6 @@ module.exports=app=>{
     app.post('/api/books',BookController.createBook)
     //get one Book
     app.get('/api/books/:id',BookController.getOneBook)
+    app.put('/api/books/:id',BookController.updateBook)
+    app.delete('/api/books/:id',BookController.deleteBook)
 }
