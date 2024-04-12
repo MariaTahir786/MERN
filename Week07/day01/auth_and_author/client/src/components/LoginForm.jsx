@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 
-
-const LoginForm = () => {
+const LoginForm = ({ saveExistingUser }) => {
+    console.log("SAVE EXISTING USER IN LOGIN FORM", saveExistingUser)
     const [userData, setUserData] = useState({
         email: '',
         password: ''
@@ -12,10 +12,7 @@ const LoginForm = () => {
 
     const navigate = useNavigate()
 
-    const [errorMessages, setErrorMessages] = useState({
-        email: '',
-        password: ''
-    })
+    const [errorMessages, setErrorMessages] = useState({})
     const changeHandler = e => {
         // console.log(e)
         setUserData({ ...userData, [e.target.id]: e.target.value })
@@ -24,7 +21,8 @@ const LoginForm = () => {
         e.preventDefault()
         axios.post('http://localhost:8000/api/users/login', userData, { withCredentials: true })
             .then(res => {
-                console.log(res.data)
+                console.log(res.data.user);
+                saveExistingUser(res.data.user)
                 navigate('/dashboard')
             })
             .catch(err => {

@@ -72,7 +72,17 @@ module.exports = {
         res.sendStatus(200).json({
             message: 'you logged out successfully'
         })
-    }
+    },
 
+    getAllUsers: (req, res) => {
+        User.find()
+            .then(allUsers => {
+                console.log("ALL USERS: ", allUsers);
+                res.json({ users: allUsers })
+            })
+            .catch(err => {
+                res.status(500).json(err)
+            })
+    }
 
 }
