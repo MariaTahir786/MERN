@@ -1,26 +1,25 @@
-//st4
 
 const mongoose = require('mongoose');
 
 const StoreSchema = new mongoose.Schema({
     storeName: {
         type: String,
-        required: [true, "Name is required"],
-        minLength: [3, "Name mus contain 3 characters!"]
+        required: [true, "Store name is required"],
+        minLength: [3, "Name must contain at least 3 characters!"]
     },
     storeNumber: {
-        type: String,
-        required: [true, "Author is required"],
-        minLength: [2, "Must be Unique number greater than 3 "]
+        type: Number,
+        required: [true, "Store number is required"],
+        min: [1, "Must be a unique number greater than 0"]
     },
     open: {
         type: Boolean,
-        required: [true, "CheckBox is required"]
+        default: false
 
     }
 }, {
-    timestamps: true // Corrected to timestamps (lowercase 's')
+    timestamps: true
 });
 
 const Store = mongoose.model('Store', StoreSchema);
-module.exports = Store; // Exporting the Book model
+module.exports = Store; 
