@@ -6,32 +6,22 @@ const StoreForm = () => {
     const [store, setStore] = useState({
         storeName: '',
         storeNumber: '',
-        open: false // Initial state for checkbox should be a boolean
+        open: false
     });
 
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
-
     const changeHandler = e => {
         const { name, value, type, checked } = e.target;
-
-        // For checkboxes, set the value to true when checked, and false when unchecked
         const newValue = type === 'checkbox' ? checked : value;
-
         let inputType;
         if (name === 'storeName') {
-            // Allow alphanumeric characters and spaces in the store name
             inputType = value.replace(/[^A-Za-z0-9\s]/g, '');
         } else {
-            inputType = newValue; // For other fields, use the original or boolean value
+            inputType = newValue;
         }
-
-        // Update the state with the new value
         setStore({ ...store, [name]: inputType });
     };
-
-
-
     const submitHandler = e => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/stores', store)
@@ -40,7 +30,7 @@ const StoreForm = () => {
                 setStore({
                     storeName: '',
                     storeNumber: '',
-                    open: false // Reset checkbox to unchecked state
+                    open: false
                 });
                 navigate(`/stores/${res.data._id}`);
             })

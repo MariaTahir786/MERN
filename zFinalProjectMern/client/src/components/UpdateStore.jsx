@@ -4,31 +4,26 @@ import axios from 'axios';
 
 const UpdateStore = () => {
     const { id } = useParams();
-
     const [store, setStore] = useState({
         storeName: '',
         storeNumber: '',
-        open: false // Initial state for checkbox should be a boolean
+        open: false
     });
 
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
-
     useEffect(() => {
         axios.get(`http://localhost:8000/api/stores/${id}`)
             .then(res => {
                 console.log(res.data);
-                setStore(res.data); // Corrected to setStore
+                setStore(res.data);
             })
             .catch(err => console.log(err));
-    }, [id]); // Added id as dependency to useEffect
+    }, [id]);
 
     const changeHandler = e => {
         const { name, value, type, checked } = e.target;
-
-        // For checkboxes, use the checked property instead of value
         const newValue = type === 'checkbox' ? checked : value;
-
         setStore({ ...store, [name]: newValue });
     };
 
@@ -57,19 +52,17 @@ const UpdateStore = () => {
 
                     <div className='mb-3'>
                         <label htmlFor="storeName" className='form-label'>Store Name</label>
-                        <input type="text" onChange={changeHandler} name='storeName' value={store.storeName} className='form-control' />
                         {errors.storeName ? <p className='text-danger'>{errors.storeName.message}</p> : null}
+                        <input type="text" onChange={changeHandler} name='storeName' value={store.storeName} className='form-control' />
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="storeNumber" className='form-label'>Store Number </label>
-                        <input type="number" onChange={changeHandler} name='storeNumber' value={store.storeNumber} className='form-control' />
                         {errors.storeNumber ? <p className='text-danger'>{errors.storeNumber.message}</p> : null}
+                        <input type="number" onChange={changeHandler} name='storeNumber' value={store.storeNumber} className='form-control' />
                     </div>
                     <div className='mb-3'>
                         <input type="checkbox" onChange={changeHandler} name='open' checked={store.open} className='form-check-input' />
                         <label htmlFor="open" className='form-label'> Open? </label>
-
-
                     </div>
                     <div>
                         <div className="mb-3 d-flex justify-content-end"></div>
