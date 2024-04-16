@@ -10,7 +10,7 @@ const Nav = () => {
             <h1>Store Finder</h1>
             {!isDisplayAllStores && (
                 <div className="d-flex justify-content-around w-30">
-                    <Link to='/' className="nav-link active" style={{ color: 'blue', textDecoration: 'underline' }}>go back home</Link>
+                    <Link to='/' className="nav-link active" style={{ color: '#d29ed2', textDecoration: 'underline' }}>go back home</Link>
                 </div>
             )}
         </nav>

@@ -30,10 +30,11 @@ const DisplayOneStore = () => {
     return (
         <div className='container'>
             <div className='row mt-5'>
-                <div className='col-md-8 offset-md-0'>
-                    <div className='card' style={{ height: '200px' }}>
-                        <div className='card-body d-flex flex-column align-items-space-around mt-3'>
-                            <h1 className='card-title'>{singleStore.storeName}</h1>
+                <h1>Store Added!</h1>
+                <div className='col-md-8 offset-md-2'> {/* Adjusting column width */}
+                    <div className='card' style={{ backgroundColor: '#faf4ff', height: '400px', border: '2px solid #391a4f', borderRadius: '5px', padding: '20px', marginTop: '20px' }}>
+                        <div className='card-body d-flex flex-column justify-content-center align-items-center mt-3'> {/* Adjusting alignment */}
+                            <h1 style={{ fontWeight: 'bold' }}>{singleStore.storeName}</h1> {/* Displaying store name as h1 with bold style */}
                             <p className='card-text'>Store Number: {singleStore.storeNumber}</p>
                             <p className='card-text'> {singleStore.open ? 'Open' : 'Closed'}</p>
                         </div>

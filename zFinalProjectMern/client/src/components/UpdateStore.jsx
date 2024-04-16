@@ -45,36 +45,31 @@ const UpdateStore = () => {
     };
 
     return (
-        <div >
-            <h4>Edit this store!</h4>
-            <div className="form-container" style={{ border: '1px solid #ccc', padding: '20px', borderRadius: '5px' }}>
-                <form onSubmit={submitHandler}>
+        <div className="container">
 
-                    <div className='mb-3'>
-                        <label htmlFor="storeName" className='form-label'>Store Name</label>
-                        {errors.storeName ? <p className='text-danger'>{errors.storeName.message}</p> : null}
-                        <input type="text" onChange={changeHandler} name='storeName' value={store.storeName} className='form-control' />
-                    </div>
-                    <div className='mb-3'>
-                        <label htmlFor="storeNumber" className='form-label'>Store Number </label>
-                        {errors.storeNumber ? <p className='text-danger'>{errors.storeNumber.message}</p> : null}
-                        <input type="number" onChange={changeHandler} name='storeNumber' value={store.storeNumber} className='form-control' />
-                    </div>
-                    <div className='mb-3'>
-                        <input type="checkbox" onChange={changeHandler} name='open' checked={store.open} className='form-check-input' />
-                        <label htmlFor="open" className='form-label'> Open? </label>
-                    </div>
-                    <div>
+            <div className="row justify-content-center mt-4">
+                <h1>Edit this store!</h1>
+                <div className="form-container col-md-8" style={{ backgroundColor: '#faf4ff', border: '2px solid #391a4f', borderRadius: '5px', padding: '50px' }}>
+
+                    <form onSubmit={submitHandler}>
+                        <div className='mb-3'>
+                            <label htmlFor="storeName" className='form-label'>Store Name</label>
+                            {errors.storeName ? <p className='text-danger'>{errors.storeName.message}</p> : null}
+                            <input type="text" onChange={changeHandler} name='storeName' value={store.storeName} className='form-control' />
+                        </div>
+                        <div className='mb-3'>
+                            <label htmlFor="storeNumber" className='form-label'>Store Number </label>
+                            {errors.storeNumber ? <p className='text-danger'>{errors.storeNumber.message}</p> : null}
+                            <input type="number" onChange={changeHandler} name='storeNumber' value={store.storeNumber} className='form-control' />
+                        </div>
+                        <div className='mb-3'>
+                            <input type="checkbox" onChange={changeHandler} name='open' checked={store.open} className='form-check-input' />
+                            <label htmlFor="open" className='form-label'> Open? </label>
+                        </div>
                         <div className="mb-3 d-flex justify-content-end"></div>
-                    </div>
-                    <button type="submit" className='btn btn-outline-secondary' style={{
-                        boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
-                        borderRight: '2px solid black',
-                        borderBottom: '6px solid black',
-                        borderRadius: '5px',
-                        margin: '0 5px'
-                    }}>Edit Store</button>
-                </form>
+                        <button type="submit" className='btn btn-outline-secondary'>Edit Store</button>
+                    </form>
+                </div>
             </div>
         </div>
     );

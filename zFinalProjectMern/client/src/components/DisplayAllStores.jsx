@@ -33,7 +33,7 @@ const DisplayAllStores = () => {
 
     return (
         <div>
-            <h5>Find stores in your area!</h5>
+            <h1>Find stores in your area!</h1>
             <table className="table table-bordered text-center">
                 <thead>
                     <tr>
